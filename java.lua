@@ -18,7 +18,7 @@ CreditsBar:NewLabel("MoneyMaker Server")
 CreditsBar:NewLabel("IMPORTANT: CLICK 3 DOTS FOR INFO")
 
 local Stack = Lobby:NewSection("Abilities CLICK ON 3 DOTS FOR INFO")
-Stack:NewButton("Commander Chain (WORKING)", "Place 3 commanders lvl 2", function(txt)
+Stack:NewButton("Commander Chain", "Place 3 commanders lvl 2", function(txt)
 	local args = {
 		loadstring(game:HttpGet("https://mmdevelopment.xyz/scripts/tdsautochain"))()
 	}
