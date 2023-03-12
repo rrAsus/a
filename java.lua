@@ -254,6 +254,20 @@ Stack:NewButton("Hunter", "Make sure u stand in the position u want to place", f
 	game:GetService("ReplicatedStorage").RemoteFunction:InvokeServer(unpack(args))
 end)
 
+Stack:NewButton("Military Base", "Make sure u stand in the position u want to place", function(txt)
+	local args = {
+		[1] = "Troops",
+		[2] = "Place",
+		[3] = "Military Base",
+		[4] = {
+			["Rotation"] = CFrame.new(0,5,0,0,90,0,0,0,0,0,0,0),
+			["Position"] = game.Players.LocalPlayer.character.HumanoidRootPart.Position - Vector3.new(0,5,0)
+		}
+	}
+
+	game:GetService("ReplicatedStorage").RemoteFunction:InvokeServer(unpack(args))
+end)
+
 Stack:NewButton("Medic", "Make sure u stand in the position u want to place", function(txt)
 	local args = {
 		[1] = "Troops",
@@ -273,20 +287,6 @@ Stack:NewButton("Militant", "Make sure u stand in the position u want to place",
 		[1] = "Troops",
 		[2] = "Place",
 		[3] = "Militant",
-		[4] = {
-			["Rotation"] = CFrame.new(0,5,0,0,90,0,0,0,0,0,0,0),
-			["Position"] = game.Players.LocalPlayer.character.HumanoidRootPart.Position - Vector3.new(0,5,0)
-		}
-	}
-
-	game:GetService("ReplicatedStorage").RemoteFunction:InvokeServer(unpack(args))
-end)
-
-Stack:NewButton("Military Base", "Make sure u stand in the position u want to place", function(txt)
-	local args = {
-		[1] = "Troops",
-		[2] = "Place",
-		[3] = "Military Base",
 		[4] = {
 			["Rotation"] = CFrame.new(0,5,0,0,90,0,0,0,0,0,0,0),
 			["Position"] = game.Players.LocalPlayer.character.HumanoidRootPart.Position - Vector3.new(0,5,0)
