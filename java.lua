@@ -480,7 +480,7 @@ Stack:NewButton("Turret", "Make sure u stand in the position u want to place", f
 end)
 
 local Script = Script:NewSection("Scripts")
-Stack:NewButton("Stacker V3", "Upgrader", function(txt)
+Script:NewButton("Stacker V3", "Upgrader", function(txt)
 	local args = {
 	loadstring(game:HttpGet("https://raw.githubusercontent.com/rrAsus/b/main/b.lua",true))()
 	}
