@@ -43,7 +43,7 @@ Stack:NewButton("Auto Medic Macro", "Uses medics abillity", function(txt)
 	game:GetService("ReplicatedStorage").RemoteFunction:InvokeServer(unpack(args))
 end)
 
-Stack:NewButton("Skip with keybind E", "Press E to skip", function(txt)
+Stack:NewButton("Stacker V3 for upgrade", "stacker", function(txt)
 	local args = {
 local times = 1
 local event = game:GetService("ReplicatedStorage").RemoteFunction
