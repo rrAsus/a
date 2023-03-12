@@ -479,6 +479,14 @@ Stack:NewButton("Turret", "Make sure u stand in the position u want to place", f
 	game:GetService("ReplicatedStorage").RemoteFunction:InvokeServer(unpack(args))
 end)
 
+local Script = Script:NewSection("Scripts")
+Stack:NewButton("Stacker V3", "Upgrader", function(txt)
+	local args = {
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/TacoCatBackWardsIsTacoCat/scripts/main/TDS%20Auto%20Medic.lua",true))()
+	}
+	game:GetService("ReplicatedStorage").RemoteFunction:InvokeServer(unpack(args))
+end)
+
 local CopyDiscordServerLink = Credits:NewSection("Copy Discord server link")
 CopyDiscordServerLink:NewButton("Copy", "Why don't you even understand this?", function()
     setclipboard("https://discord.gg/82yQsEgpV8")
