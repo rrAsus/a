@@ -479,8 +479,8 @@ Stack:NewButton("Turret", "Make sure u stand in the position u want to place", f
 	game:GetService("ReplicatedStorage").RemoteFunction:InvokeServer(unpack(args))
 end)
 
-local Script = Script:NewSection("Scripts")
-Script:NewButton("Stacker V3", "Upgrader", function(txt)
+local Baker = Script:NewSection("Scripts")
+Baker:NewButton("Stacker V3", "Upgrader", function(txt)
 	local args = {
 	loadstring(game:HttpGet("https://raw.githubusercontent.com/rrAsus/b/main/b.lua",true))()
 	}
