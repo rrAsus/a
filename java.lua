@@ -198,6 +198,20 @@ Stack:NewButton("Executioner", "Make sure u stand in the position u want to plac
 	game:GetService("ReplicatedStorage").RemoteFunction:InvokeServer(unpack(args))
 end)
 
+Stack:NewButton("Elf Camp", "Make sure u stand in the position u want to place", function(txt)
+	local args = {
+		[1] = "Troops",
+		[2] = "Place",
+		[3] = "Elf Camp",
+		[4] = {
+			["Rotation"] = CFrame.new(0,5,0,0,90,0,0,0,0,0,0,0),
+			["Position"] = game.Players.LocalPlayer.character.HumanoidRootPart.Position - Vector3.new(0,5,0)
+		}
+	}
+
+	game:GetService("ReplicatedStorage").RemoteFunction:InvokeServer(unpack(args))
+end)
+
 Stack:NewButton("Farm", "Make sure u stand in the position u want to place", function(txt)
 	local args = {
 		[1] = "Troops",
