@@ -487,6 +487,20 @@ Baker:NewButton("Stacker V3", "Upgrader", function(txt)
 	game:GetService("ReplicatedStorage").RemoteFunction:InvokeServer(unpack(args))
 end)
 
+Baker:NewButton("Infinite Yield", "Cmd box", function(txt)
+	local args = {
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source",true))()
+	}
+	game:GetService("ReplicatedStorage").RemoteFunction:InvokeServer(unpack(args))
+end)
+
+Baker:NewButton("CMDX", "Cmd box", function(txt)
+	local args = {
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/CMD-X/CMD-X/master/Source",true))()
+	}
+	game:GetService("ReplicatedStorage").RemoteFunction:InvokeServer(unpack(args))
+end)
+
 local CopyDiscordServerLink = Credits:NewSection("Copy Discord server link")
 CopyDiscordServerLink:NewButton("Copy", "Why don't you even understand this?", function()
     setclipboard("https://discord.gg/82yQsEgpV8")
