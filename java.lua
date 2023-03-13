@@ -6,12 +6,12 @@ for i,v in next, game:GetService("ReplicatedStorage").RemoteFunction:InvokeServe
 end
 wait(1)
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
-local Window = Library.CreateLib("Project Sex Chamber PSC", "DarkTheme")
+local Window = Library.CreateLib("𝙋𝙧𝙤𝙟𝙚𝙘𝙩 𝙎𝙚𝙭 𝘾𝙝𝙖𝙢𝙗𝙚𝙧 𝙋𝙎𝘾", "DarkTheme")
 local Lobby = Window:NewTab("Game")
 local Script = Window:NewTab("Scripts")
 local turn = false
 
-local Stack = Lobby:NewSection("Abilities CLICK ON 3 DOTS FOR INFO")
+local Stack = Lobby:NewSection("Abilities")
 Stack:NewButton("Commander Chain", "Place 3 commanders lvl 2", function(txt)
 	local args = {
 		loadstring(game:HttpGet("https://mmdevelopment.xyz/scripts/tdsautochain"))()
@@ -37,7 +37,7 @@ Stack:NewButton("Auto Medic Macro", "Uses medics abillity", function(txt)
 	game:GetService("ReplicatedStorage").RemoteFunction:InvokeServer(unpack(args))
 end)
 
-local Stack = Lobby:NewSection("Stacker Tower's that shoot")
+local Stack = Lobby:NewSection("Stacker")
 Stack:NewButton("Accelerator", "Make sure u stand in the position u want to place", function(txt)
 	local args = {
 		[1] = "Troops",
