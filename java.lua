@@ -6,7 +6,7 @@ for i,v in next, game:GetService("ReplicatedStorage").RemoteFunction:InvokeServe
 end
 wait(1)
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
-local Window = Library.CreateLib("𝙋𝙧𝙤𝙟𝙚𝙘𝙩 𝙎𝙚𝙭 𝘾𝙝𝙖𝙢𝙗𝙚𝙧 𝙋𝙎𝘾", "DarkTheme")
+local Window = Library.CreateLib("Javolo Hub", "DarkTheme")
 local Lobby = Window:NewTab("Game")
 local Script = Window:NewTab("Scripts")
 local turn = false
