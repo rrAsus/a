@@ -7,11 +7,11 @@ end
 wait(1)
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
 local Window = Library.CreateLib("Project Sex Chamber PSC", "DarkTheme")
-local Credits = Window:NewTab("Credits")
 local Lobby = Window:NewTab("Game")	
+local Credits = Window:NewTab("Abilities")
 local Script = Window:NewTab("Scripts")
 local turn = false
-local CreditsBar = Credits:NewSection("Credits")
+local CreditsBar = Credits:NewSection("Abillities Tower's That do ability")
 
 local Stack = Lobby:NewSection("Abilities CLICK ON 3 DOTS FOR INFO")
 Stack:NewButton("Commander Chain", "Place 3 commanders lvl 2", function(txt)
@@ -39,7 +39,7 @@ Stack:NewButton("Auto Medic Macro", "Uses medics abillity", function(txt)
 	game:GetService("ReplicatedStorage").RemoteFunction:InvokeServer(unpack(args))
 end)
 
-local Stack = Lobby:NewSection("Stacker")
+local Stack = Lobby:NewSection("Stacker Tower's that shoot")
 Stack:NewButton("Accelerator", "Make sure u stand in the position u want to place", function(txt)
 	local args = {
 		[1] = "Troops",
