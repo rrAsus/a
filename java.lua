@@ -502,8 +502,3 @@ Baker:NewButton("Player Stats UI TDS", "Useful for Viewing", function(txt)
 	}
 	game:GetService("ReplicatedStorage").RemoteFunction:InvokeServer(unpack(args))
 end)
-
-local CopyDiscordServerLink = Credits:NewSection("Copy Discord server link")
-CopyDiscordServerLink:NewButton("Copy", "Why don't you even understand this?", function()
-    setclipboard("https://discord.gg/82yQsEgpV8")
-end)
