@@ -346,6 +346,20 @@ Stack:NewButton("Pursuit", "Make sure u stand in the position u want to place", 
 	game:GetService("ReplicatedStorage").RemoteFunction:InvokeServer(unpack(args))
 end)
 
+Stack:NewButton("Warden", "Make sure u stand in the position u want to place", function(txt)
+	local args = {
+		[1] = "Troops",
+		[2] = "Place",
+		[3] = "Warden",
+		[4] = {
+			["Rotation"] = CFrame.new(0,5,0,0,90,0,0,0,0,0,0,0),
+			["Position"] = game.Players.LocalPlayer.character.HumanoidRootPart.Position - Vector3.new(0,5,0)
+		}
+	}
+
+	game:GetService("ReplicatedStorage").RemoteFunction:InvokeServer(unpack(args))
+end)
+
 Stack:NewButton("Pyromancer", "Make sure u stand in the position u want to place", function(txt)
 	local args = {
 		[1] = "Troops",
