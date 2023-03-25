@@ -1,12 +1,5 @@
-local TowersUHave = {}
-for i,v in next, game:GetService("ReplicatedStorage").RemoteFunction:InvokeServer("Session", "Search", "Inventory.Troops") do
-    if v.Equipped then
-        table.insert(TowersUHave, i)
-    end
-end
-wait(1)
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
-local Window = Library.CreateLib("Javolo Hub", "DarkTheme")
+local Window = Library.CreateLib("Javolo Hub TDS", "DarkTheme")
 local Script = Window:NewTab("Scripts")
 local turn = false
 
