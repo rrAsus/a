@@ -29,6 +29,13 @@ Baker:NewButton("Auto Medic Macro", "Uses medics abillity", function(txt)
 	game:GetService("ReplicatedStorage").RemoteFunction:InvokeServer(unpack(args))
 end)
 
+Baker:NewButton("Sell farms at 40 or 50", "Depends on what you choose", function(txt)
+	local args = {
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/rrAsus/d/main/d",true))()
+	}
+	game:GetService("ReplicatedStorage").RemoteFunction:InvokeServer(unpack(args))
+end)
+
 Baker:NewButton("Stacker V3", "Upgrader", function(txt)
 	local args = {
 	loadstring(game:HttpGet("https://raw.githubusercontent.com/rrAsus/b/main/b.lua",true))()
