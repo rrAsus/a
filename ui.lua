@@ -657,11 +657,15 @@ function HDXLib:Notify(NotificationSettings)
 		Notification.Description.TextTransparency = 1
 		Notification.Description.TextColor3 = SelectedTheme.TextColor
 		Notification.Icon.ImageColor3 = SelectedTheme.TextColor
-        if NotificationSettings.Image then
-            Notification.Icon.Image = "rbxassetid://"..tostring(NotificationSettings.Image) 
-        else
-            Notification.Icon.Image = "rbxassetid://3944680095"
-        end
+		if NotificationSettings.Image then
+			if tonumber(NotificationSettings.Image) then
+				Notification.Icon.Image = "rbxassetid://"..tostring(NotificationSettings.Image)
+			else
+				Notification.Icon.Image = NotificationSettings.Image
+			end
+		else
+			Notification.Icon.Image = "rbxassetid://3944680095"
+		end
 
         Notification.Icon.ImageTransparency = 1
 
