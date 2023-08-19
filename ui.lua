@@ -921,14 +921,14 @@ function OpenSearch()
 end
 SearchBar.Input:GetPropertyChangedSignal("Text"):Connect(function()
     local InputText=string.upper(SearchBar.Input.Text)
-    for _,page in ipairs(Elements:GetChildren()) do
-        if page ~= "Template" then
-            for _,Element in pairs(page:GetChildren())do
-                if Element:IsA("Frame") and Element.Name ~= "Placeholder" and Element.Name ~= "SectionSpacing" and Element.Name ~= TabPage then
-                    if InputText==""or string.find(string.upper(Element.Name),InputText)~=nil then
-                        Element.Visible=true
+    for _, page in ipairs(Elements:GetChildren()) do
+        if page ~= 'Template' then
+            for _, Element in pairs(page:GetChildren()) do
+                if Element:IsA("Frame") and Element.Name ~= 'Placeholder' and Element.Name ~= 'SectionSpacing' then
+                    if InputText == "" or string.find(string.upper(Element.Name), InputText) ~= nil then
+                        Element.Visible = true
                     else
-                        Element.Visible=false
+                        Element.Visible = false
                     end
                 end
             end
@@ -1712,8 +1712,7 @@ function HDXLib:CreateWindow(Settings)
         end
 
         -- Section
-        function Tab:CreateSection(SectionName,Display)
-
+        function Tab:CreateSection(SectionName,Display,Icon)
             local SectionValue = {
                 Holder = HDX.Holding,
                 Open = true
@@ -1731,6 +1730,15 @@ function HDXLib:CreateWindow(Settings)
                 sectionholder = Section.Holder,
                 element = Section
             }
+            Section.Icon.Visible = false
+            if not Icon or Icon == nil then
+                Section.Icon.Visible = false
+                Section.Title.Position = UDim2.new(0, 10, 0, 8)
+            else
+                Section.Icon.Image = "rbxassetid://" .. tostring(Icon)
+                Section.Icon.Visible = true
+                Section.Title.Position = UDim2.new(0, 35, 0, 8)
+            end
 
             Section.Title.TextTransparency = 1
             TweenService:Create(Section.Title, TweenInfo.new(0.7, Enum.EasingStyle.Quint), {TextTransparency = 0}):Play()
