@@ -306,16 +306,16 @@ local neon = (function()  --Open sourced neon module
             continued = IsNotNaN(Camera:ScreenPointToRay(0,0).Origin.x)
         end
     end
-    local RootParent = Camera
-    if false == nil then
-        RootParent = Camera
-    else
-        if not false then
-            RootParent = Camera
-        else 
-            RootParent = nil
-        end
-    end
+	local RootParent = Camera
+	if getgenv().SecureMode == nil then
+		RootParent = Camera
+	else
+		if not getgenv().SecureMode then
+			RootParent = Camera
+		else 
+			RootParent = nil
+		end
+	end
 
 
     local binds = {}
