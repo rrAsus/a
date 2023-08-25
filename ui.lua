@@ -3347,8 +3347,8 @@ Topbar.Hide.MouseButton1Click:Connect(function()
     end
 end)
 
-UserInputService.InputBegan:Connect(function(input)
-    if (input.KeyCode == Enum.KeyCode.Semicolon) then
+UserInputService.InputBegan:Connect(function(input, processed)
+    if (input.KeyCode == Enum.KeyCode.Semicolon and not processed) then
         if Debounce then return end
         if Hidden then
             Hidden = false
