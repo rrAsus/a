@@ -1712,7 +1712,7 @@ function HDXLib:CreateWindow(Settings)
         end
 
         -- Section
-        function Tab:CreateSection(SectionName, Display, DefaultHide, Icon)
+        function Tab:CreateSection(SectionName, Display, DefaultHide)
 
             local SectionValue = {
                 Holder = HDX.Holding,
@@ -1731,16 +1731,6 @@ function HDXLib:CreateWindow(Settings)
                 sectionholder = Section.Holder,
                 element = Section
             }
-
-            Section.Icon.Visible = false
-            if not Icon or Icon == nil then
-                Section.Icon.Visible = false
-                Section.Title.Position = UDim2.new(0, 10, 0, 8)
-            else
-                Section.Icon.Image = "rbxassetid://" .. tostring(Icon)
-                Section.Icon.Visible = true
-                Section.Title.Position = UDim2.new(0, 35, 0, 8)
-            end
 
             Section.Title.TextTransparency = 1
             TweenService:Create(Section.Title, TweenInfo.new(0.7, Enum.EasingStyle.Quint), {TextTransparency = 0}):Play()
@@ -3372,10 +3362,10 @@ end)
 Topbar.Type.MouseButton1Click:Connect(function()
     if Debounce or Minimised then return end
     if SideBarClosed then
-        Topbar.Type.Image = "rbxassetid://".. 10709759610
+        -- Topbar.Type.Image = "rbxassetid://".. 10709759610
         OpenSideBar()
     else
-        Topbar.Type.Image = "rbxassetid://".. 10709759610
+        -- Topbar.Type.Image = "rbxassetid://".. 10709759610
         CloseSideBar()
     end
 end)
