@@ -164,7 +164,6 @@ local SearchBar = Main.Searchbar
 local Filler = SearchBar.CanvasGroup.Filler
 local Prompt = Main.Prompt
 local NotePrompt = Main.NotePrompt
-local InfoPrompt = HDX.Info
 
 HDX.DisplayOrder = 100
 LoadingFrame.Version.Text = Release
@@ -180,8 +179,7 @@ local Debounce = false
 local clicked = false
 local SearchHided = true
 local SideBarClosed = true
-local InfoPromptOpen = false
-local BarType = "Side"
+local BarType = "Top"
 local HoverTime = 0.3
 local Notifications = HDX.Notifications
 
@@ -209,7 +207,7 @@ function ChangeTheme(ThemeName)
 
     for _, TabPage in ipairs(Elements:GetChildren()) do
         for _, Element in ipairs(TabPage:GetChildren()) do
-            if Element.ClassName == "Frame" and Element.Name ~= "Placeholder" and Element.Name ~= "SectionSpacing" and Element.Name ~= ""  then
+            if Element.ClassName == "Frame" and Element.Name ~= "Placeholder" and Element.Name ~= "SectionSpacing" and Element.Name ~= "" and Element.Name ~= "SectionTitle" then
                 Element.BackgroundColor3 = SelectedTheme.ElementBackground
                 Element.UIStroke.Color = SelectedTheme.ElementStroke
             end
@@ -241,20 +239,17 @@ local function AddDraggingFunctionality(DragPoint, Main)
         UserInputService.InputChanged:Connect(function(Input)
             if Input == DragInput and Dragging then
                 local Delta = Input.Position - MousePos
-                TweenService:Create(Main, TweenInfo.new(0.45, Enum.EasingStyle.Quint, Enum.EasingDirection.Out), {Position  = UDim2.new(FramePos.X.Scale,FramePos.X.Offset + Delta.X, FramePos.Y.Scale, FramePos.Y.Offset + Delta.Y)}):Play()
-                TweenService:Create(InfoPrompt, TweenInfo.new(0.6, Enum.EasingStyle.Quint, Enum.EasingDirection.Out), {Position  = UDim2.new(FramePos.X.Scale,FramePos.X.Offset + Delta.X+ 370, FramePos.Y.Scale, FramePos.Y.Offset + Delta.Y)}):Play()
+                                TweenService:Create(Main, TweenInfo.new(0.45, Enum.EasingStyle.Quint, Enum.EasingDirection.Out),
+                    {
+                        Position = UDim2.new(FramePos.X.Scale, FramePos.X.Offset + Delta.X, FramePos.Y.Scale,
+                            FramePos.Y.Offset + Delta.Y)
+                    }):Play()
             end
         end)
     end)
 end
 
-function BoolToText(Bool)
-    if Bool == true then
-        return "ENABLED",Color3.fromRGB(44, 186, 44)
-    else
-        return "DISABLED",Color3.fromRGB(186, 44, 44)
-    end
-end
+
 local function PackColor(Color)
     return {R = Color.R * 255, G = Color.G * 255, B = Color.B * 255}
 end    
@@ -267,15 +262,20 @@ local function LoadConfiguration(Configuration)
     local Data = HttpService:JSONDecode(Configuration)
     for FlagName, FlagValue in next, Data do
         if HDXLib.Flags[FlagName] then
-            spawn(function() 
+            spawn(function()
                 if HDXLib.Flags[FlagName].Type == "ColorPicker" then
                     HDXLib.Flags[FlagName]:Set(UnpackColor(FlagValue))
                 else
-                    if HDXLib.Flags[FlagName].CurrentValue or HDXLib.Flags[FlagName].CurrentKeybind or HDXLib.Flags[FlagName].CurrentOption or HDXLib.Flags[FlagName].Color ~= FlagValue then HDXLib.Flags[FlagName]:Set(FlagValue) end
-                end    
+                    if HDXLib.Flags[FlagName].CurrentValue or HDXLib.Flags[FlagName].CurrentKeybind or HDXLib.Flags[FlagName].CurrentOption or HDXLib.Flags[FlagName].Color ~= FlagValue then
+                        HDXLib.Flags[FlagName]:Set(FlagValue)
+                    end
+                end
             end)
         else
-            HDXLib:Notify({Title = "Flag Error", Content = "HDX was unable to find "..FlagName.. " in the current script"})
+            HDXLib:Notify({
+                Title = "Flag Error",
+                Content = "HDX was unable to find '" .. FlagName .. "'' in the current script"
+            })
         end
     end
 end
@@ -1433,21 +1433,7 @@ function HDXLib:CreateWindow(Settings)
     --	})
     --end)
 
-    TweenService:Create(InfoPrompt,TweenInfo.new(.3,Enum.EasingStyle.Quint,Enum.EasingDirection.Out),{
-        Size = UDim2.fromOffset(212,254),BackgroundTransparency = 1
-    }):Play()
-    TweenService:Create(InfoPrompt.ImageLabel,TweenInfo.new(.25,Enum.EasingStyle.Quad,Enum.EasingDirection.Out),{
-        ImageTransparency = 1
-    }):Play()
-    TweenService:Create(InfoPrompt.Description,TweenInfo.new(.25,Enum.EasingStyle.Quad,Enum.EasingDirection.Out),{
-        TextTransparency = 1
-    }):Play()
-    TweenService:Create(InfoPrompt.Status,TweenInfo.new(.25,Enum.EasingStyle.Quad,Enum.EasingDirection.Out),{
-        TextTransparency = 1
-    }):Play()
-    TweenService:Create(InfoPrompt.Title,TweenInfo.new(.25,Enum.EasingStyle.Quad,Enum.EasingDirection.Out),{
-        TextTransparency = 1
-    }):Play()
+
 
     TopList.Template.Visible = false
     SideList.SideTemplate.Visible = false
