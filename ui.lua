@@ -1433,7 +1433,22 @@ function HDXLib:CreateWindow(Settings)
     --	})
     --end)
 
+    TweenService:Create(InfoPrompt,TweenInfo.new(.3,Enum.EasingStyle.Quint,Enum.EasingDirection.Out),{
 
+        Size = UDim2.fromOffset(212,254),BackgroundTransparency = 1
+    }):Play()
+    TweenService:Create(InfoPrompt.ImageLabel,TweenInfo.new(.25,Enum.EasingStyle.Quad,Enum.EasingDirection.Out),{
+        ImageTransparency = 1
+    }):Play()
+    TweenService:Create(InfoPrompt.Description,TweenInfo.new(.25,Enum.EasingStyle.Quad,Enum.EasingDirection.Out),{
+        TextTransparency = 1
+    }):Play()
+    TweenService:Create(InfoPrompt.Status,TweenInfo.new(.25,Enum.EasingStyle.Quad,Enum.EasingDirection.Out),{
+        TextTransparency = 1
+    }):Play()
+    TweenService:Create(InfoPrompt.Title,TweenInfo.new(.25,Enum.EasingStyle.Quad,Enum.EasingDirection.Out),{
+        TextTransparency = 1
+    }):Play()
 
     TopList.Template.Visible = false
     SideList.SideTemplate.Visible = false
