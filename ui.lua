@@ -1712,10 +1712,9 @@ function HDXLib:CreateWindow(Settings)
         end
 
         -- Section
-        function Tab:CreateSection(SectionName, Display, DefaultHide)
-
+        function Tab:CreateSection(SectionName, Display, DefaultHide, Icon)
             local SectionValue = {
-                Holder = HDX.Holding,
+                Holder = HDXLib.Holding,
                 Open = true
             }
             local Debounce = false
@@ -1726,25 +1725,38 @@ function HDXLib:CreateWindow(Settings)
             Section.Parent = TabPage
 
             Tab.Elements[SectionName] = {
-                type = "section",
+                type = 'section',
                 display = Display,
                 sectionholder = Section.Holder,
                 element = Section
             }
 
+            Section.Icon.Visible = false
+            if not Icon or Icon == nil then
+                Section.Icon.Visible = false
+                Section.Title.Position = UDim2.new(0, 10, 0, 8)
+            else
+                Section.Icon.Image = "rbxassetid://" .. tostring(Icon)
+                Section.Icon.Visible = true
+                Section.Title.Position = UDim2.new(0, 35, 0, 8)
+            end
+
             Section.Title.TextTransparency = 1
-            TweenService:Create(Section.Title, TweenInfo.new(0.7, Enum.EasingStyle.Quint), {TextTransparency = 0}):Play()
+            TweenService:Create(Section.Title, TweenInfo.new(0.7, Enum.EasingStyle.Quint), { TextTransparency = 0 })
+                :Play()
 
             function SectionValue:Set(NewSection)
                 Section.Title.Text = NewSection
             end
+
             if Display then
-                Section._UIPadding_:Destroy()
+                Section._UIPadding_.PaddingBottom = UDim.new(0, 4)
                 Section.Holder.Visible = false
                 Section.BackgroundTransparency = 1
-                SectionValue.Holder.Parent = HDX.Holding
+                SectionValue.Holder.Parent = Rayfield.Holding
                 Section.Title.ImageButton.Visible = false
             end
+
             if DefaultHide and not Display then
                 coroutine.wrap(function()
                     wait()
@@ -1775,7 +1787,8 @@ function HDXLib:CreateWindow(Settings)
             elseif not DefaultHide and not Display then
                 Section._UIPadding_.PaddingBottom = UDim.new(0, 8)
             end
-                        Section.Clickable.MouseButton1Down:Connect(function()
+
+            Section.Clickable.MouseButton1Down:Connect(function()
                 if Debounce then return end
                 if SectionValue.Open then
                     --Section.Holder.Visible = true
