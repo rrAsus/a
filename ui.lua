@@ -629,7 +629,7 @@ function HDXLib:Notify(NotificationSettings)
 				ActionCompleted = false
 				local NewAction = Notification.Actions.Template:Clone()
 				NewAction.BackgroundColor3 = SelectedTheme.NotificationActionsBackground
-				if SelectedTheme ~= RayfieldLibrary.Theme.Default then
+				if SelectedTheme ~= HDXLib.Theme.Default then
 					NewAction.TextColor3 = SelectedTheme.TextColor
 				end
 				NewAction.Name = Action.Name
@@ -3362,10 +3362,10 @@ end)
 Topbar.Type.MouseButton1Click:Connect(function()
     if Debounce or Minimised then return end
     if SideBarClosed then
-        -- Topbar.Type.Image = "rbxassetid://".. 10709759610
+         Topbar.Type.Image = "rbxassetid://".. 10709759610
         OpenSideBar()
     else
-        -- Topbar.Type.Image = "rbxassetid://".. 10709759610
+         Topbar.Type.Image = "rbxassetid://".. 10709759610
         CloseSideBar()
     end
 end)
