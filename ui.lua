@@ -1454,38 +1454,38 @@ function HDXLib:CreateWindow(Settings)
 
     -- Tab
     local FirstTab = false
-    HDXQuality.Window = {Tabs = {}}
+    HDXQuality.Window = { Tabs = {} }
     local Window = HDXQuality.Window
-    
-    function Window:SetTopbarTitle(text)
-        Topbar.Title.Text = text
-    end
-    
-    function Window:CreateTab(Name,Image)
-        Window.Tabs[Name]={Elements = {}}
+    function Window:CreateTab(Name, Image, AllowColorChange)
+        Window.Tabs[Name] = { Elements = {} }
         local Tab = Window.Tabs[Name]
         local SDone = false
-        local TopTabButton,SideTabButton = TopList.Template:Clone(), SideList.SideTemplate:Clone()
+        local TopTabButton, SideTabButton = TopList.Template:Clone(), SideList.SideTemplate:Clone()
 
         SideTabButton.Parent = SideList
         TopTabButton.Parent = TopList
 
-        TopTabButton.Name=Name SideTabButton.Name=Name
+        TopTabButton.Name = Name
+        SideTabButton.Name = Name
 
-        TopTabButton.Title.Text = Name SideTabButton.Title.Text = Name
-        SideTabButton.Title.TextWrapped = false TopTabButton.Title.TextWrapped = false 
+        TopTabButton.Title.Text = Name
+        SideTabButton.Title.Text = Name
+        SideTabButton.Title.TextWrapped = false
+        TopTabButton.Title.TextWrapped = false
 
         TopTabButton.Size = UDim2.new(0, TopTabButton.Title.TextBounds.X + 30, 0, 30)
-		if Image then
-			TopTabButton.Image.Image = "rbxassetid://"..Image
-			SideTabButton.Image.Image = "rbxassetid://"..Image
 
-			TopTabButton.Title.AnchorPoint = Vector2.new(0, 0.5)
-			TopTabButton.Title.Position = UDim2.new(0, 37, 0.5, 0)
-			TopTabButton.Image.Visible = true
-			TopTabButton.Title.TextXAlignment = Enum.TextXAlignment.Left
-			TopTabButton.Size = UDim2.new(0, TopTabButton.Title.TextBounds.X + 46, 0, 30)
-		end
+        if Image then
+            TopTabButton.Image.Image = "rbxassetid://" .. Image
+            SideTabButton.Image.Image = "rbxassetid://" .. Image
+
+            TopTabButton.Title.AnchorPoint = Vector2.new(0, 0.5)
+            TopTabButton.Title.Position = UDim2.new(0, 37, 0.5, 0)
+            TopTabButton.Image.Visible = true
+            TopTabButton.Title.TextXAlignment = Enum.TextXAlignment.Left
+            TopTabButton.Size = UDim2.new(0, TopTabButton.Title.TextBounds.X + 46, 0, 30)
+        end
+
         TopTabButton.BackgroundTransparency = 1
         TopTabButton.Title.TextTransparency = 1
         TopTabButton.Shadow.ImageTransparency = 1
